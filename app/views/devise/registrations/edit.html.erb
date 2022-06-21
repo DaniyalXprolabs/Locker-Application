@@ -10,7 +10,7 @@
   </div>
     <div class="field my-5">
       <%= f.label :phone_number %><br />
-      <%= f.phone_field :phone_number,   class:'rounded-md border-2 border-black my-1 py-1' %>
+      <%= f.phone_field :phone_number, class:'rounded-md border-2 border-black my-1 py-1' %>
     </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
