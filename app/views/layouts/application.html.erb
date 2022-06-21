@@ -11,8 +11,10 @@
   </head>
 
   <body>
-   <%= render 'layouts/navigation' %> 
-<p class="notice"><%= notice %></p>
+  <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) %>
+  <%= render 'layouts/navigation' %>
+  <% end %>
+   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>

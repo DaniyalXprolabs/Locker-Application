@@ -1,7 +1,8 @@
 <div class="container grid place-items-center h-screen ">
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <h2 class="text-black-200 font-serif text-4xl my-7">Log In</h2>
-  <div class="field my-5">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2 class="text-black-200 font-serif text-4xl my-7"><%= image_tag 'Logo.png' , class: 'h-20 inline'%>Log In</h2>
+
+    <div class="field my-5">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'rounded-md border-2 border-black my-1 py-1' %>
   </div>
@@ -19,7 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
   </div>
 <% end %>
 
