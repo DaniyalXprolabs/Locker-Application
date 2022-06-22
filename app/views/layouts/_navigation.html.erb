@@ -7,7 +7,7 @@ Locker Application
 </div>
   <ul class="md:flex md:items-center z-[-1] md:z-auto md:static">
     <li class="mx-5 my-6 md:my-0">
-      <%= link_to "Home", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
+        <%= link_to "Home", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
     </li>
     <li class="mx-5 my-6 md:my-0">
       <%= link_to "About", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
@@ -16,6 +16,10 @@ Locker Application
       <%= link_to "Locker's", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
     </li>
     <% if user_signed_in? %>
+      <li class="mx-5 my-6 md:my-0">
+        <i class="fa-solid fa-user"></i> <%=  current_user.email %>
+       </li>
+
       <%= link_to "Logout", destroy_user_session_path, method: :delete , class: 'px-6 py-2 mt-4 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
