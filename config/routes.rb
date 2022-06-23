@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get :toggle_role
-    end
-    member do
       get :profile
     end
   end
