@@ -11,7 +11,5 @@ class PagesController < ApplicationController
     redirect_to profile_page_path(@user)
   end
 
-  def profile
-
-  end
+  def profile;end
 end
