@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     else
       @user.buyer!
     end
-    redirect_to root_path
+    redirect_to profile_page_path(@user)
   end
 
   def profile
