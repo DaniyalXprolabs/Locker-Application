@@ -6,12 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>   <script src="https://cdn.tailwindcss.com"></script>
-
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
-  <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) %>
+  <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) or current_page?(new_user_password_path) or current_page?(edit_user_password_path)%>
   <%= render 'layouts/navigation' %>
   <% end %>
    <p class="notice"><%= notice %></p>
