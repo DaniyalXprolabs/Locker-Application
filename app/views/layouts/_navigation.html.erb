@@ -19,8 +19,14 @@ Locker Application
       <li class="mx-5 my-6 md:my-0">
         <i class="fa-solid fa-user"></i> <%=  current_user.email %>
        </li>
-
-      <%= link_to "Logout", destroy_user_session_path, method: :delete , class: 'px-6 py-2 mt-4 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
+      <% if current_user.buyer? %>
+        <%= current_user.role %>
+        <h1><%= link_to "Become a Seller", toggle_role_page_path(current_user.id), class: 'mx-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900' %></h1>
+        <% else %>
+        <%= current_user.role %>
+        <h1><%= link_to "Become a buyer", toggle_role_page_path(current_user.id), class: 'mx-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900'  %></h1>
+  <% end %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete , class: 'px-6 py-2 mt-4 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
       <%= link_to "Signup", new_user_registration_path, class: 'mx-3 px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
