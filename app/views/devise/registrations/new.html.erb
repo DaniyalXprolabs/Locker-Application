@@ -5,6 +5,10 @@
       <h2 class="text-black-200 font-serif text-4xl my-7"><%= image_tag 'Logo.png' , class: 'h-20 inline'%> Sign up</h2>
 
   <div class="field my-5">
+    <%= f.label :username %><br />
+    <%= f.text_field :username,  class:'rounded-md border-2 border-black my-1 py-1' %>
+  </div>
+    <div class="field my-5">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'rounded-md border-2 border-black my-1 py-1' %>
   </div>
