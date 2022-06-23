@@ -17,10 +17,8 @@ Locker Application
     </li>
     <% if user_signed_in? %>
       <li class="mx-5 my-6 md:my-0">
-        <i class="fa-solid fa-user"></i> <%=  current_user.email %>
+        <i class="fa-solid fa-user"></i> <%= link_to current_user.email, profile_page_path(current_user) %>
        </li>
-
-      <%= link_to "Logout", destroy_user_session_path, method: :delete , class: 'px-6 py-2 mt-4 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
       <%= link_to "Signup", new_user_registration_path, class: 'mx-3 px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
