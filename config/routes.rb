@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     member do
       get :toggle_role
     end
+    member do
+      get :profile
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
