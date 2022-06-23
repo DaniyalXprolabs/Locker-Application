@@ -17,7 +17,7 @@ Locker Application
     </li>
     <% if user_signed_in? %>
       <li class="mx-5 my-6 md:my-0">
-        <i class="fa-solid fa-user"></i> <%= link_to current_user.email, profile_page_path(current_user) %>
+        <i class="fa-solid fa-user"></i> <%= link_to current_user.username, profile_page_path(current_user) %>
        </li>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
