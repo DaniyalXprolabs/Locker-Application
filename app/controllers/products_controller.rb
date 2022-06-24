@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
   before_action :getProductId, only:[:show, :edit, :update,:destroy]
+  before_action :authenticate_user!, only: [:show]
   def index
-    @products=Product.all
+    if user_signed_in?
+      @products=Product.where("user_id != ?",current_user.id)
+    else
+      @products=Product.all
+    end
   end
 
   def new

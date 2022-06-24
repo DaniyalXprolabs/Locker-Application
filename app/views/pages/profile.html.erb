@@ -11,3 +11,24 @@
   <%= link_to "Edit Profile", edit_user_registration_path ,  class:"focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"%>
   <%= link_to "Logout", destroy_user_session_path, method: :delete ,  class:"focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"%>
 </div><hr>
+
+<div class="py-10 px-10">
+  <% if current_user.buyer? %>
+  <h2>Listing Your orders</h2>
+  <% else %>
+     <h2 class="text-black-200 font-serif text-3xl my-7"> Listing Your Products</h2>
+    <% @products.each do |p| %>
+
+      <div class="mx-6 p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+
+        <%= link_to p.name, product_path(p),    class:"mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"%>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Price:<%= p.price %></p>
+
+        <p  class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><%= p.description %></p>
+        <%= link_to "Purchase Product", product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+
+      </div>
+
+    <% end %>
+  <% end %>
+</div>

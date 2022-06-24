@@ -13,6 +13,8 @@ class PagesController < ApplicationController
     redirect_to profile_page_path(@user)
   end
 
-  def profile;end
+  def profile
+    @products=Product.where("user_id =?",current_user.id)
+  end
 end
 
