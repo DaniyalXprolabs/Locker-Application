@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :getPortfolioId, only:[:show, :edit, :update,:destroy]
+  before_action :getProductId, only:[:show, :edit, :update,:destroy]
   def index
     @products=Product.all
   end
