@@ -1,0 +1,17 @@
+<%= form_for(@product) do |f| %>
+  <div class="field my-5">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,  class:'rounded-md border-2 border-black my-1 py-1' %>
+  </div>
+  <div class="field my-5">
+    <%= f.label :description %><br />
+    <%= f.text_area :description,  class:'rounded-md border-2 border-black my-1 py-1' %>
+  </div>
+  <div class="field my-5">
+    <%= f.label :price %><br />
+    <%= f.number_field :price,  class:'rounded-md border-2 border-black my-1 py-1' %>
+  </div>
+  <div class="field my-5">
+    <%= f.submit "Create Product", class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %><br />
+  </div>
+<% end %>

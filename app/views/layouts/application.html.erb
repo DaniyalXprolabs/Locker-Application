@@ -11,11 +11,11 @@
   </head>
 
   <body>
-  <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) or current_page?(new_user_password_path) or current_page?(edit_user_password_path)%>
-  <%= render 'layouts/navigation' %>
-  <% end %>
-   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) or current_page?(new_user_password_path) or current_page?(edit_user_password_path)%>
+      <%= render 'layouts/navigation' %>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
