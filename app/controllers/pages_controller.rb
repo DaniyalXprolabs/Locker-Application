@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  def home;end
+  def home
+    @products=Product.all
+  end
 
   def toggle_role
     @user=User.find(params[:id])
