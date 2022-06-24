@@ -17,4 +17,3 @@ class PagesController < ApplicationController
     @products=Product.where("user_id =?",current_user.id)
   end
 end
-

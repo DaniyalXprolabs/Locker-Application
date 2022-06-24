@@ -2,33 +2,31 @@
 <h1 class="font-normal text-2xl leading-6 text-gray-800 dark:text-white text-center my-5 "> <i class="fa-solid fa-phone"></i> <%= current_user.phone_number %></h1><hr>
 
 <div class="py-10 px-10">
-<% if current_user.buyer? %>
-  <%= link_to "Become a Seller", toggle_role_page_path(current_user.id), class: 'my-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900' %>
-<% else %>
-  <%= link_to "+ Add a product",new_product_path, class: 'mx-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900'  %>
-  <%= link_to "Become a buyer", toggle_role_page_path(current_user.id), class: 'my-100 px-6 py-2   text-white bg-green-600 rounded-lg hover:bg-blue-900'  %>
-<% end %>
+  <% if current_user.buyer? %>
+    <%= link_to "Become a Seller", toggle_role_page_path(current_user.id), class: 'my-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900' %>
+  <% else %>
+    <%= link_to "+ Add a product",new_product_path, class: 'mx-3 px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-blue-900'  %>
+    <%= link_to "Become a buyer", toggle_role_page_path(current_user.id), class: 'my-100 px-6 py-2   text-white bg-green-600 rounded-lg hover:bg-blue-900'  %>
+  <% end %>
   <%= link_to "Edit Profile", edit_user_registration_path ,  class:"focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"%>
   <%= link_to "Logout", destroy_user_session_path, method: :delete ,  class:"focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"%>
 </div><hr>
 
 <div class="py-10 px-10">
   <% if current_user.buyer? %>
-  <h2>Listing Your orders</h2>
+    <h2>Listing Your orders</h2>
   <% else %>
-     <h2 class="text-black-200 font-serif text-3xl my-7"> Listing Your Products</h2>
+    <h2 class="text-black-200 font-serif text-3xl my-7"> Listing Your Products</h2>
     <% @products.each do |p| %>
-
       <div class="mx-6 p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-
         <%= link_to p.name, product_path(p),    class:"mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"%>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Price:<%= p.price %></p>
-
         <p  class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><%= p.description %></p>
-        <%= link_to "Purchase Product", product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
-
+        <% if p.user_id = current_user.id %>
+          <%= link_to "Edit the Product",edit_product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+          <%= link_to "Delete the Product", product_path(p), method: :delete,class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+        <% end %>
       </div>
-
     <% end %>
   <% end %>
 </div>

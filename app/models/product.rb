@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
+  belongs_to :user
+  
   extend FriendlyId
   friendly_id :name, use: :slugged
-  belongs_to :user
 end
