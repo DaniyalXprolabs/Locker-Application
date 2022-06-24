@@ -5,5 +5,6 @@
     <h1>Price: <%= @product.price %></h1>
     <h1>Created By: <%= @product.user.username %></h1>
     <h1>Created at: <%= @product.created_at %></h1>
-  </div>
+    <h1><%= image_tag(@product.product_picture, alt: "rss feed", height: 600, width: 600) %></h1>
+  </div> 
 </div>
