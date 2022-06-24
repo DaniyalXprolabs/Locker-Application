@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @product.user_id=current_user.id
     if @product.save
       flash[:notice]="Product created Successfully"
-      redirect_to product_path
+      redirect_to product_path(@product)
     else
       render 'new'
     end
