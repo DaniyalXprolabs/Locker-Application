@@ -6,5 +6,22 @@
     <h1>Created By: <%= @product.user.username %></h1>
     <h1>Created at: <%= @product.created_at %></h1>
     <h1><%= image_tag(@product.product_picture, alt: "rss feed", height: 600, width: 600) %></h1>
+    <!-- Comments Section -->
+    <%= render 'comments/form' %>
+
+      <h2 class="text-black-200 font-serif text-2xl my-7">Comments</h2>
+      <% @product.comments.each do |c|%>
+      <div class="border-solid border-2 border-blue-600 rounded-lg my-5 py-5">
+      <h2 class="mx-10 my-5"><i class="fa-solid fa-user"></i>: <%=  c.commenter %></h2>
+      <h2 class="mx-10 my-5">Comment: <%= c.body %></h2>
+      <% if c.commenter == current_user.username %>
+        <p>
+            <%= link_to 'Delete Comment', [c.product, c],
+              method: :delete,
+              data: { confirm: "Are you sure?" }, class: 'mx-10 px-6 py-2 my-10 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
+        </p>
+      <% end %>
+      </div>
+      <% end %>
   </div> 
 </div>

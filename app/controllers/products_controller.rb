@@ -49,6 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def getProductId
-    @product = Product.friendly.find(params[:id])
+    @product = Product.find(params[:id])
   end
 end
