@@ -1,10 +1,10 @@
   <h2 class="text-black-200 font-serif text-2xl my-7">Add a Review</h2>
     <%= form_with model: [ @product, @product.comments.build ] do |form| %>
     <p>
-      <%= form.label :review %><br>
-      <%= form.text_area :body, class:'rounded-md border-2 border-black my-1 py-1' %>
+        <%= form.label :review %><br>
+        <%= form.text_area :body, class:'rounded-md border-2 border-black my-1 py-1' %>
     </p>
     <p>
-      <%= form.submit class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
+        <%= form.submit class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
     </p>
     <% end %>
