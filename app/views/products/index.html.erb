@@ -5,5 +5,6 @@
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Price:<%= p.price %></p>
     <p  class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><%= p.description %></p>
     <%= link_to "Purchase Product", product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+    <%= link_to "Add to cart", product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
   </div>
 <% end %>
