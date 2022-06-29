@@ -5,7 +5,9 @@
     <h1>Price: <%= @product.price %></h1>
     <h1>Created By: <%= @product.user.username %></h1>
     <h1>Created at: <%= @product.created_at %></h1>
-    <h1><%= image_tag(@product.product_picture, alt: "rss feed", height: 600, width: 600) %></h1>
+    <%= image_tag(@product.product_picture, alt: "rss feed", height: 600, width: 600) %>
+    <%= link_to "Purchase Product", product_path(@product), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+    <%= link_to "Add to cart", product_path(@product), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
     <!-- Comments Section -->
     <%= render 'comments/form' %>
 
