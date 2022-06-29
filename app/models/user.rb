@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :products
+  has_many :orders
 
   enum role: { buyer: 0, seller: 1, admin: 2 }
 

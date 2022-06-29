@@ -16,6 +16,11 @@
       <%= link_to "Locker's", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
     </li>
     <% if user_signed_in? %>
+      <% if current_user.buyer? %>
+        <li class="mx-5 my-6 md:my-0">
+        <i class="fa-solid fa-cart-shopping"> </i> Your Cart
+        </li>
+      <% end %>
       <li class="mx-5 my-6 md:my-0">
         <i class="fa-solid fa-user"></i> <%= link_to current_user.username, profile_page_path(current_user) %>
       </li>
