@@ -5,15 +5,15 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @product = Product.find(params[:product_id])
     @order=Order.new
+    @product = Product.find(params[:product_id])
   end
   
   def create
-    @order=Order.create()
+    @order=Order.new()
     @order.user_id=current_user.id
-    @order.total=0
     @order.save
+    redirect_to @order
   end
 
 end
