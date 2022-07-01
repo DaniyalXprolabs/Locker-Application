@@ -7,7 +7,7 @@
 
   <ul class="md:flex md:items-center z-[-1] md:z-auto md:static">
     <li class="mx-5 my-6 md:my-0">
-        <%= link_to "Home", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
+      <%= link_to "Home", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
     </li>
     <li class="mx-5 my-6 md:my-0">
       <%= link_to "About", root_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
@@ -19,6 +19,10 @@
       <% if current_user.buyer? %>
         <li class="mx-5 my-6 md:my-0">
         <i class="fa-solid fa-cart-shopping"> </i> Your Cart
+        </li>
+      <% elsif current_user.admin? %>
+        <li class="mx-5 my-6 md:my-0">
+          <%= link_to "Orders", orders_path, class: 'text-xl hover:text-cyan-500 duration-500' %>
         </li>
       <% end %>
       <li class="mx-5 my-6 md:my-0">
