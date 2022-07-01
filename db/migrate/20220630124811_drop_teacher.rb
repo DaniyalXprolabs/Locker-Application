@@ -1,5 +1,5 @@
 class DropTeacher < ActiveRecord::Migration[6.1]
   def change
-    drop_table :teachers
+    #drop_table :teachers
   end
 end
