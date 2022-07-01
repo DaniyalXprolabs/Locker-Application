@@ -17,12 +17,10 @@
       <h2 class="mx-10 my-5">  <%= c.body %></h2>
       <% if c.commenter == current_user.username %>
         <p>
-            <%= link_to 'Delete Comment', [c.product, c],
-              method: :delete,
-              data: { confirm: "Are you sure?" }, class: 'mx-10 px-6 py-2 my-10 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
+          <%= link_to 'Delete Comment', [c.product, c], method: :delete,data: { confirm: "Are you sure?" }, class: 'mx-10 px-6 py-2 my-10 text-white bg-red-600 rounded-lg hover:bg-blue-900' %>
         </p>
       <% end %>
       </div>
-      <% end %>
+    <% end %>
   </div> 
 </div>
