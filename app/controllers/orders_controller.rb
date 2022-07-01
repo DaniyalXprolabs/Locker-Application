@@ -1,5 +1,11 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders=Order.all
+    @pending_orders=Order.where("status=?",0).count
+    @delivered_orders=Order.where("status=?",1).count
+  end
+
   def show
     @order=Order.find(params[:id])
   end
