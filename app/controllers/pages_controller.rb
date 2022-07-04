@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
   def toggle_role
-    @user=User.find(params[:id])
+    @user = User.find(params[:id])
     if @user.buyer?
       @user.seller!
     else
@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @products=Product.where("user_id =?",current_user.id)
+    @products = Product.where("user_id = ?",current_user.id)
+    @orders = Order.where("user_id = ?", current_user.id)
   end
 end
