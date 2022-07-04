@@ -90,5 +90,5 @@ test:
 production:
   <<: *default
   database: LockerApplication_production
-  username: LockerApplication
-  password: <%= ENV['LOCKERAPPLICATION_DATABASE_PASSWORD'] %>
+  #username: LockerApplication
+  #password: <%= ENV['LOCKERAPPLICATION_DATABASE_PASSWORD'] %>
