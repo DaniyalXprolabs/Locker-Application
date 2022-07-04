@@ -8,16 +8,15 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order=Order.new()
-    @order.user_id = current_user.id
+    @order = Order.new()
     @product = Product.find(params[:product_id])
+    @order.product_ids = @product.id
+    @order.user_id = current_user.id
     @order.save
     redirect_to @order
   end
 
-  def show
-    #@product = Product.find(params[:product_id])
-  end
+  def show; end
   
   def destroy
     @order.destroy
@@ -27,10 +26,11 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id,:total)
+    params.require(:order).permit(:user_id,:total,:product_ids)
   end
 
   def getOrderId
     @order=Order.find(params[:id])
   end
+  
 end
