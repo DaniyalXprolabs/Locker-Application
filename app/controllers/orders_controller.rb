@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     @order = Order.new()
     @product = Product.find(params[:product_id])
     @order.product_ids = @product.id
+    @order.total=@product.price
     @order.user_id = current_user.id
     @order.save
     redirect_to @order
@@ -32,5 +33,5 @@ class OrdersController < ApplicationController
   def getOrderId
     @order=Order.find(params[:id])
   end
-  
+
 end
