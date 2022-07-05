@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   
   def destroy
     @order.destroy
-    redirect_to root_path
+    redirect_to profile_page_path(@order.user_id)
   end
 
   private
