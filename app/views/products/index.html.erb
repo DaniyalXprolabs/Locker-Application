@@ -5,7 +5,7 @@
     <%= link_to p.name, product_path(p), class:"mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"%>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Price:<%= p.price %></p>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><%= p.description.truncate(30) %></p>
-    <%= image_tag(p.product_picture, alt: "rss feed", height: 600, width: 600) %>
+    <%= image_tag(p.product_picture, alt: "Image not found", height: 600, width: 600) %>
     <% if user_signed_in? and current_user.admin? %>
       <%= link_to "Edit the Product",edit_product_path(p), class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
       <%= link_to "Delete the Product", product_path(p), method: :delete,class:"my-4 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
