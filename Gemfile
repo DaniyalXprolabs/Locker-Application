@@ -59,3 +59,4 @@ gem 'net-smtp', require: false
 gem 'friendly_id', '~> 5.4.0'
 gem 'net-imap', require: false
 gem 'net-pop', require: false
+gem 'will_paginate', '~> 3.3'
