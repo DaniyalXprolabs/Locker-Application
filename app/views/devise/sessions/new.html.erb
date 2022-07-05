@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+  <div class="px-8 py-5 mt-4 text-left bg-white shadow-lg">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <h2 class="text-black-200 font-serif text-4xl my-7"><%= image_tag 'Logo.png' , class: 'h-20 inline'%>Log In</h2>
 
@@ -21,7 +21,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in",class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900' %>
+          <%= f.submit "Log in",class: 'px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900 my-3' %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
