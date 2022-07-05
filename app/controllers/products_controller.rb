@@ -3,11 +3,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def index
-    if user_signed_in?
-      @products = Product.where("user_id != ?",current_user.id)
-    else
-      @products = Product.all
-    end
+    @products = Product.paginate(page: params[:page], per_page: 8)
   end
 
   def new
@@ -49,6 +45,6 @@ class ProductsController < ApplicationController
   end
 
   def getProductId
-    @product = Product.friendly.find(params[:id])
+    @product = Product.find(params[:id])
   end
 end
