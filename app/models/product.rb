@@ -8,5 +8,7 @@ class Product < ApplicationRecord
 
   has_one_attached :product_picture
   
-  
+  validates :name, presence: true, length: { maximum:50 }
+  validates :price, presence: true, numericality: { greater_than: 1 }
+  #validates :description, presence: true, length: { maximum:150 }
 end
