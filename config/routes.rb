@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get :toggle_role
-      get :profile
     end
   end
+  
+  get 'profile' => 'pages#profile' 
 
   resources :products do
     resources :comments

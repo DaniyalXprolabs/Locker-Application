@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order.total=@product.price
     @order.user_id = current_user.id
     @order.save
-    redirect_to @order
+    redirect_to profile_path
   end
 
   def show; end
