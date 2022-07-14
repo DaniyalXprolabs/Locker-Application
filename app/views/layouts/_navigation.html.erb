@@ -19,7 +19,7 @@
     <% if user_signed_in? %>
       <% if current_user.buyer? %>
         <li class="mx-5 my-6 md:my-0">
-        <i class="fa-solid fa-cart-shopping"> </i> <%= link_to 'Cart', cart_path %>
+        <i class="fa-solid fa-cart-shopping"> </i> <%= link_to 'Cart', cart_path %> (<%= @cart.cart_products.count %>)
         </li>
       <% elsif current_user.admin? %>
         <li class="mx-5 my-6 md:my-0">

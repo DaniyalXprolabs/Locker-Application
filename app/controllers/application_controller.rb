@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   include DeviseWhitelist
 
+  def getCart
+    @cart = current_user.cart
+  end
+
   def current_buyer
     if session[:user_id]
       @user=User.find(session[:user_id])
