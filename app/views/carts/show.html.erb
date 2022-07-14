@@ -3,10 +3,13 @@
     <h2 class="text-black-200 font-serif text-4xl my-5 text-center"><i class="fa-solid fa-cart-shopping"></i> Cart of <%= @cart.user.username %></h2>
     <h2 class="text-black-200 font-serif text-4xl my-5 text-center">Total Number of Products: <%= @cart.cart_products.count %></h2>
       <div class="grid grid-cols-4 gap-4">
-        <% @cart.cart_products.each do |cart_product| %>
+        <% @cart.cart_products.each do |cproduct| %>
           <div class="mx-3 p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-5">
-            <h1>Product Name: <%= cart_product.product.name %></h1>
-            <%= image_tag(cart_product.product.product_picture, alt: "rss feed", height: 600, width: 600) %>
+            <h1 class="text-right"><%= link_to "X", cart_product_path(cproduct), method: :delete %></h1>
+            <h1>Product Name: <%= cproduct.product.name %></h1>
+            <%= image_tag(cproduct.product.product_picture, alt: "rss feed", height: 600, width: 600) %>
+            <h1>Subtotal: <%= cproduct.subtotal %></h1>
+            <h1>Quantity: <%= cproduct.quantity %></h1>
           </div>
         <% end %>
         <br>
