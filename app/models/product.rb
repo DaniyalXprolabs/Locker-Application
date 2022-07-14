@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
+
+  has_many :cart_products
+  has_many :products, through: :cart_products
   
   has_many :order_products
   has_many :orders, through: :order_products
