@@ -10,11 +10,12 @@ class PagesController < ApplicationController
     else
       @user.buyer!
     end
-    redirect_to profile_page_path(@user)
+    redirect_to profile_path(@user)
   end
 
   def profile
     @products = Product.where("user_id = ?",current_user.id)
     @orders = Order.where("user_id = ?", current_user.id)
+    @cart = current_user.cart
   end
 end

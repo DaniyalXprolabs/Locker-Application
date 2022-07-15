@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   after_create :create_user_cart
-  has_one :cart
-  has_many :products
+
+  has_one :cart, dependent: :destroy
+  has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
 
   enum role: { buyer: 0, seller: 1, admin: 2 }

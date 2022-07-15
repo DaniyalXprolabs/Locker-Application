@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :getOrderId, only: [:show, :destroy]
-
+  before_action :getCart, only: [:new, :show]
   def index
     @orders = Order.all
     @pending_orders=Order.where("status = ?",0).count
@@ -32,6 +32,10 @@ class OrdersController < ApplicationController
 
   def getOrderId
     @order=Order.find(params[:id])
+  end
+
+  def getCart
+    @cart = current_user.cart
   end
 
 end
