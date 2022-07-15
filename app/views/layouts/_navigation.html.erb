@@ -1,7 +1,8 @@
 <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
   <div>
     <span class="text-2xl font-[Poppins] cursor-pointer">
-      <%= image_tag 'Logo.png' , class: 'h-20 inline'%>Locker Application
+      <%= image_tag 'Logo.png' , class: 'h-20 inline'%>
+      <%= link_to "Locker Application", root_path %>
     </span>
   </div>
 
@@ -18,7 +19,7 @@
     <% if user_signed_in? %>
       <% if current_user.buyer? %>
         <li class="mx-5 my-6 md:my-0">
-        <i class="fa-solid fa-cart-shopping"> </i> Your Cart
+        <i class="fa-solid fa-cart-shopping"> </i> <%= link_to 'Cart', cart_path %> (<%= @cart.cart_products.count %>)
         </li>
       <% elsif current_user.admin? %>
         <li class="mx-5 my-6 md:my-0">

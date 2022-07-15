@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_many :products
+  after_create :create_user_cart
+
+  has_one :cart, dependent: :destroy
+  has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
 
   enum role: { buyer: 0, seller: 1, admin: 2 }
@@ -12,5 +15,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: {maximum: 15, minimum: 5} 
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEXP } 
   validates :phone_number, presence: true, uniqueness: true, length: { is: 11 }
-  
+
+  def create_user_cart
+    self.create_cart
+  end
 end

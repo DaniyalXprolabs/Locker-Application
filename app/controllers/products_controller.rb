@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :getProductId, only:[:show, :edit, :update,:destroy]
   before_action :authenticate_user!, only: [:show]
+  before_action :getCart, only: [:index, :show]
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 8)
@@ -46,5 +47,9 @@ class ProductsController < ApplicationController
 
   def getProductId
     @product = Product.find(params[:id])
+  end
+
+  def getCart
+    @cart = current_user.cart
   end
 end
