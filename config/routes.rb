@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   post 'cart_products/add' => "cart_products#add_quantity", as: "cart_product_add"
   post 'cart_products/remove' => "cart_products#remove_quantity", as: "cart_product_remove"
+
 end

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @products=Product.all
+    @products = Product.all
   end
 
   def toggle_role
@@ -14,8 +14,8 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @products = Product.where("user_id = ?",current_user.id)
-    @orders = Order.where("user_id = ?", current_user.id)
+    @products = Product.where('user_id = ?',current_user.id)
+    @orders = Order.where('user_id = ?', current_user.id)
     @cart = current_user.cart
   end
 end

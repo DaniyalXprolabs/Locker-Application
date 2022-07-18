@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :getProduct_ID, only: [:new,:create,:destroy]
+  before_action :getProduct_ID, only: %i[create destroy]
 
   def create
     @comment = @product.comments.create(comment_params)
     @comment.commenter = current_user.username
     @comment.save
-    redirect_to product_path(@product)
+    redirect_to product_path(@product), notice: 'Comment added successfully'
   end
 
   def destroy
