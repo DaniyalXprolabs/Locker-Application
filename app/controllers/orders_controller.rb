@@ -13,7 +13,10 @@ class OrdersController < ApplicationController
       @order = Order.new
       @order.user_id = current_user.id
       @order.products << @cart.products
-      @order.products << @cart.products
+      @cart.destroy
+      @cart = Cart.new
+      @cart.user_id = current_user.id
+      @cart.save
     else
       @order = Order.new()
       @product = Product.find(params[:product_id])
