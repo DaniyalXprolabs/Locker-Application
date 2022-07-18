@@ -3,6 +3,6 @@ class OrderProduct < ApplicationRecord
   belongs_to :product
 
   def subtotal
-    self.quantity * self.product.price
+    quantity * product.price
   end
 end
