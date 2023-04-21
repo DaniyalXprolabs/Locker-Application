@@ -17,6 +17,6 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true, length: { is: 11 }
 
   def create_user_cart
-    self.create_cart
+    create_cart
   end
 end
