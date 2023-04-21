@@ -14,7 +14,7 @@
     </div>
     <h1>Total: <%= @order.total %></h1>
     <h1 class="my-5">Order Status: <%= @order.status %></h1>
-    <% if current_user.admin? or current_user.id=@order.user_id %>
+    <% if current_user.admin? or (current_user.id = @order.user_id) %>
     <p>
       <%= link_to 'Delete the Order',@order,
               method: :delete,
